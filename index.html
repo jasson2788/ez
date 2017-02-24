@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <title>EazyMatch</title>
+        <link rel="stylesheet" type="text/css" href="styles/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <link rel="icon" href="img/icon.png">
+        <link href="img/icon.png" rel="apple-touch-icon-precomposed">
+        <script src="scripts/jquery-2.2.3.min.js"></script>
+        <script src="scripts/utils.js"></script>
+        <script src="scripts/components.js"></script>
+        <script src="scripts/repository.js"></script>
+        <script src="scripts/diamond.js"></script>
+        <script src="scripts/app.js"></script>
+        <style id="styles-opacity"></style>
+    </head>
+    <body class="noselect resize_ok" id="clickable-body">
+        <noscript>
+        <div id="nojs" class="bg-color6 txt-dark">
+            <div id="nojs-txt"><span>This app cannot run without javascript.</span><form action="" method="POST"><input type="submit" value="refresh" class="clickable bg-color2 txt-white radius"></form></div>
+        </div>
+        </noscript>
+        <div id="pages-container">
+            <div class="pages" id="messages">
+                <div class="bg-color5 txt-white no-prev-button top-menu">
+                    <div class="center">
+                        <div class="radius txt-red top-menu-prev"></div>
+                        <div class='txt-dark top-menu-page-name'>- Dashboard - </div>
+                        <div class="clickable txt-red radius top-menu-right-menu"><i class="fa fa-bars"></i></div>
+                    </div>
+                </div>
+                <div class="ppage">
+                    <div class="center">
+                        <div id="matches-all-container" class="bigscreen">
+                            <div class="no-boxes-container" id="matches-all-container-empty" style="display:none">
+                                <div class="no-boxes txt-dark">
+                                    <i class="fa fa-users"></i>
+                                    <div id="matches-all-container-empty-hi">Hi, Jasson!</div>
+                                    <div>You don't have any matches just yet.</div>
+                                    <button class="clickable txt-white bg-color2 radius-b" id="btn-matches-all-container-match">match now</button>
+                                </div>
+                            </div>
+                            <div id="matches-all-container-matches-container">
+                                <div id="matches-all-container-matches-container-search" class="bg-color5">
+                                    <input placeholder="search your buddies" type="text" id="matches-all-container-matches-container-search-input" class="txt-dark2">
+                                    <div id="matches-all-container-matches-container-search-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                                </div>
+                                <div id="matches-all-container-messages-container-container-container"><div id="matches-all-container-messages-container-container" class="scrollbar-container"></div></div>
+                            </div>
+                            <div id="matches-all-container-message-container" class="radius">
+                                <div id="matches-all-container-message-c">
+                                    <div id="matches-all-container-message">
+                                        <div id="matches-all-container-message-info">
+                                            <div id="matches-all-container-message-info-name" class="txt-dark">Ashley Wagner</div>
+                                            <div id="matches-all-container-message-info-more" class="txt-red"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                                        </div>
+                                        <div class="no-boxes-container" id="matches-all-container-message-empty" style='display: none'>
+                                            <div class="no-boxes txt-dark">
+                                                <i class="fa fa-comments"></i>
+                                                <div>You haven't started the conversation yet...</div>
+                                            </div>
+                                        </div>
+                                        <div id="matches-all-container-message-message-container" class='scrollbar-container'></div>
+                                        <div id="matches-all-container-message-compose">
+                                            <textarea class="txt-dark2" placeholder="enter your message"></textarea>
+                                        </div>
+                                    </div>
+                                    <button id="matches-all-container-message-container-btn" class="clickable bg-color3 txt-white">send</button>
+                                </div>
+                                <div class="no-boxes-container no-boxes-container-abs" id="matches-all-container-message-empty-user">
+                                    <div class="no-boxes txt-dark">
+                                        <i class="fa fa-user-plus"></i>
+                                        <div>No selected user</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages" id="conversation">
+                <div class="bg-color5 txt-white no-prev-button top-menu">
+                    <div class="center">
+                        <div class="clickable radius txt-red top-menu-prev"><i class="fa fa-angle-left"></i></div>
+                        <div class='txt-dark top-menu-page-name'>- Ashley Wagner - </div>
+                        <div class="clickable txt-red radius top-menu-right-menu"><i class="fa fa-ellipsis-v"></i></div>
+                    </div>
+                </div>
+                <div class="ppage">
+                    <div class="center" id="conversation-page">
+                        <div id="conversation-container" class='scrollbar-container'>
+                            <div id="conversation-container-content" class='scrollbar-container-element'></div><div class='scrollbar'></div>
+                            <div class="no-boxes-container" id="conversation-container-empty" style='display: none'>
+                                <div class="no-boxes txt-dark">
+                                    <i class="fa fa-comments"></i>
+                                    <div>You haven't started the conversation yet...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="conversation-type">
+                            <textarea id="conversation-type-textarea" class="txt-dark2"  placeholder="enter your message"></textarea>
+                            <button id="conversation-type-button" class="clickable bg-color3 txt-white">send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages searching" id="matches">
+                <div class="bg-color5 txt-white no-prev-button top-menu">
+                    <div class="center">
+                        <div class="clickable txt-red radius top-menu-prev"><i class="fa fa-angle-left"></i></div>
+                        <div class='txt-dark top-menu-page-name'>- Matches - </div>
+                        <div class="clickable txt-red radius top-menu-right-menu"><i class="fa fa-bars"></i></div>
+                    </div>
+                </div>
+                <div id="matches-step2-matches-container-canvas">
+                    <canvas id="matches-step2-matches-container-back"></canvas>
+                    <canvas id="matches-step2-matches-container"></canvas>
+                </div>
+                <div class="center">
+                    <button id="matches-step2-matches-btn1" class='clickable txt-white matches-step2-matches-btn text-white w50 right radius bg-color2'><i class="fa fa-thumbs-down"></i></button>
+                    <button id="matches-step2-matches-btn2" class='clickable txt-white matches-step2-matches-btn text-white w50 left radius bg-color3'><i class="fa fa-thumbs-up"></i></button>
+                </div>
+            </div>
+            <div class="pages" id="settings">
+                <div class="bg-color3 txt-white no-prev-button top-menu">
+                    <div class="center">
+                        <div class="clickable txt-white radius top-menu-prev"><i class="fa fa-angle-left"></i></div>
+                        <div class='txt-white top-menu-page-name'>&nbsp;</div>
+                        <div class="clickable txt-white radius top-menu-right-menu"><i class="fa fa-bars"></i></div>
+                    </div>
+                </div>
+                <div class="ppage">
+                    <div id="settings-container" class="bg-color3 txt-white">
+                        <div class="center">
+                            <img id="settings-container-img" src="img/profile.jpg" alt="">
+                            <div id="settings-container-name">Jasson Black</div>
+                            <div id="settings-container-location">Montreal, QC.</div>
+                        </div>
+                    </div>
+                    <div class="center" id="settings-center">
+                        <div class="settings-container bg-color5 radius txt-dark2">
+                            <div class="settings-container-label">Discovery</div>
+                            <div class="settings-container-option" id="settings-option-discovery">
+                                <div class="diamond-onoff bg-color6" data-value='off'><div class="diamond-onoff-circle bg-color3"></div></div>
+                            </div>
+                        </div>
+                        <div class="settings-container-info txt-dark">Disabling discovery prevents others from seeing your card. This has no effect on your existing matches.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-menu" class='bg-color2 txt-white'>
+            <div class="clickable right-menu-btn bg-color2" data-goto="messages">
+                <div class="right-menu-btn-icon"><i class="fa fa-comments"></i></div>
+                <div class="right-menu-btn-text">Messages</div>
+            </div>
+            <div class="clickable right-menu-btn bg-color2" data-goto="matches">
+                <div class="right-menu-btn-icon"><i class="fa fa-user-plus"></i></div>
+                <div class="right-menu-btn-text">Matches</div>
+            </div>
+            <div class="clickable right-menu-btn bg-color2" data-goto="settings">
+                <div class="right-menu-btn-icon"><i class="fa fa-gear"></i></div>
+                <div class="right-menu-btn-text">Settings</div>
+            </div>
+            <div class="clickable right-menu-btn bg-color2">
+                <div class="right-menu-btn-icon"><i class="fa fa-sign-out"></i></div>
+                <div class="right-menu-btn-text">Logout</div>
+            </div>
+        </div>
+        <div id="menu-overlay" class='clickable'></div>
+        <div id="templates">
+            <iframe style="display:none" src="image.html" id="templates-iframe"></iframe>
+            <div id="templates-loading" class="matches-loading">
+                <div class='matches-triangle-container'>
+                    <div class="matches-triangle matches-triangle1"></div>
+                    <div class="matches-triangle matches-triangle2"></div>
+                    <div class="matches-triangle matches-triangle3"></div>
+                    <div class="clear"></div>
+                    <div class="matches-triangle matches-triangle4"></div>
+                    <div class="matches-triangle matches-triangle5"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="matches-triangle-text txt-dark" id="templates-loading-text"></div>
+            </div>
+            <div class='bg-color6 templates-match-message' id="templates-match-request">
+                <img class="templates-match-message-img"  draggable="false" alt="" src="" id="templates-match-request-src">
+                <div class='templates-match-message-cont'>
+                    <div class='templates-match-message-cont-name txt-dark2' id="templates-match-request-name"></div>
+                    <div class='templates-match-message-cont-mess txt-gray' id="templates-match-request-message"></div>
+                </div>
+                <button class='clickable bg-color2 templates-match-message-btn txt-white radius'>&#10005;</button>
+                <button class='bg-color3 templates-match-message-btn templates-match-message-btn1 txt-white clickable radius'>&#10003;</button>
+            </div>
+            <div class='clickable bg-color6 templates-match-message mess' id="templates-match-message">
+                <img class="templates-match-message-img"  draggable="false" src="" alt="" id="templates-match-message-src">
+                <div class='templates-match-message-cont'>
+                    <div class='templates-match-message-cont-name txt-dark2' id="templates-match-message-name"></div>
+                    <div class='templates-match-message-cont-mess txt-gray' id="templates-match-message-message"></div>
+                </div>
+                <div class='templates-match-message-time txt-dark2' id="templates-match-message-date">1m</div>
+            </div>
+            <div class='templates-message-message' id="templates-message-you">
+                <img draggable="false" alt="" src="" id="templates-message-you-src">
+                <div class="templates-message-message-container txt-dark2 bg-color5 radius">
+                    <div class="templates-message-message-container-name txt-red" id="templates-message-you-name"></div>
+                    <div class="templates-message-message-container-main" id="templates-message-you-message"></div>
+                </div>
+                <div class="templates-message-message-date txt-dark"><i class="fa fa-clock-o txt-dark2"></i><span id="templates-message-you-date"></span></div>
+            </div>
+            <div class='templates-message-message right' id="templates-message-me">
+                <img draggable="false" alt="" src="" id="templates-message-me-src">
+                <div class="templates-message-message-container txt-dark2 bg-color5 radius">
+                    <div class="templates-message-message-container-name txt-red" id="templates-message-me-name"></div>
+                    <div class="templates-message-message-container-main" id="templates-message-me-message"></div>
+                </div>
+                <div class="templates-message-message-date txt-dark"><i class="fa fa-clock-o txt-dark2"></i><span id="templates-message-me-date"></span></div>
+            </div>
+        </div>
+    </body>
+</html>
